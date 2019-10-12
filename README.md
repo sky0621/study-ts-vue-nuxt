@@ -67,3 +67,4 @@ value = 'test'
 let signal: 'Red' | 'Yellow' | 'Green'
 signal = 'Yellow'
 // signal = 'Blue'
+

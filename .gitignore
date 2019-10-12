@@ -1,4 +1,4 @@
 .idea/
-dist/**/*
+ts/dist/**/*
 .vscode/
 
