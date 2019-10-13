@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <p>[[MESSAGE]] {{ message }}</p>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -36,7 +37,26 @@ export default Vue.extend({
   name: 'HelloWorld',
   props: {
     msg: String,
+    value: [Number, String]
+    requiredValue: {
+      type: [Number, String],
+      required: true
+    },
+
+    obj: {
+      type: Object as PropType<{ name: string }>,
+      required: true
+    },
+
+    arr: {
+      type: Array as PropType<{ task: string }[]>
+    }
   },
+  computed: {
+    message(): String {
+      return this.msg
+    }
+  }
 });
 </script>
 
