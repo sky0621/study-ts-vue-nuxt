@@ -35,15 +35,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class HelloWorld extends Vue {
   @Prop() private msg!: string;
-  
-  @Prop({ type: Boolean, default: false })
-  flag!: boolean
-
-  @Prop({ type: String, default: null })
-  message!: string | null
-
-  @Prop({ type: [String | Number], default: null })
-  value!: string | number | null
 }
 </script>
 
