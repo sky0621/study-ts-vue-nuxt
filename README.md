@@ -68,3 +68,8 @@ let signal: 'Red' | 'Yellow' | 'Green'
 signal = 'Yellow'
 // signal = 'Blue'
 
+## Nuxt.js
+
+### create project
+npx create-nuxt-app projName
+
