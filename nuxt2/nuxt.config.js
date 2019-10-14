@@ -37,7 +37,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/vuetify'],
+  plugins: ['@/plugins/vuetify', '@/plugins/vee-validate'],
 
   /*
   ** Nuxt.js modules
@@ -47,6 +47,7 @@ module.exports = {
     '@nuxtjs/axios',
     'nuxt-i18n',
     '~/modules/error-message'
+    // 'nuxt-validate'
   ],
   /*
   ** Axios module configuration
@@ -71,6 +72,15 @@ module.exports = {
     lazy: true,
     langDir: 'lang/'
   },
+
+  // nuxtValidate: {
+  //   lang: 'ja',
+  //   nuxti18n: {
+  //     locale: {
+  //       'ja-JP': 'ja_JP'
+  //     }
+  //   }
+  // },
 
   /*
   ** Build configuration
