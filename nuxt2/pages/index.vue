@@ -22,9 +22,7 @@ export default {
   },
   methods: {
     pBtn() {
-      console.log(this)
-      console.log(this.$t)
-      this.res = this.ToMessage(this)
+      this.res = this.ToMessage()
     }
   }
 }

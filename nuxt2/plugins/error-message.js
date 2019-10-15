@@ -2,11 +2,11 @@ import Vue from 'vue'
 
 Vue.mixin({
   methods: {
-    ToMessage(vComponent) {
-      if (vComponent.$t) {
-        console.log(vComponent.$t(`item_name`))
-        const itemName = vComponent.$t(`item_name`)
-        return vComponent.$t(`greeting`, [itemName, 'さぶろー'])
+    ToMessage() {
+      if (this.$t) {
+        console.log(this.$t(`item_name`))
+        const itemName = this.$t(`item_name`)
+        return this.$t(`greeting`, [itemName, 'さぶろー'])
       }
       return ''
     }
