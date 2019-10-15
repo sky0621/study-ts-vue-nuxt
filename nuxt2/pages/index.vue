@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import ToMessage from '~/modules/error-message.js'
-
 export default {
   data() {
     return {
@@ -26,7 +24,7 @@ export default {
     pBtn() {
       console.log(this)
       console.log(this.$t)
-      this.res = ToMessage(this)
+      this.res = this.ToMessage(this)
     }
   }
 }

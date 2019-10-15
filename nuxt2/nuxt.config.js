@@ -37,7 +37,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/vuetify', '@/plugins/vee-validate'],
+  plugins: ['@/plugins/vuetify', '@/plugins/vee-validate', '@/plugins/error-message.js'],
 
   /*
   ** Nuxt.js modules
@@ -45,8 +45,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    'nuxt-i18n',
-    '~/modules/error-message'
+    'nuxt-i18n'
     // 'nuxt-validate'
   ],
   /*
