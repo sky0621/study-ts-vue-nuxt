@@ -1,5 +1,5 @@
 <template>
-  <Sample v-bind:user="{firstName: 'Sato', lastName: 123}" />
+  <Sample :user="{firstName: 'Sato', lastName: 123}" />
 </template>
 
 <script>
