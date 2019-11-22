@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-  import { Vue, Component, Provide } from 'vue-property-decorator'
+  import { Vue, Component, Provide } from 'nuxt-property-decorator'
 
   interface User {
     readonly firstName: String
