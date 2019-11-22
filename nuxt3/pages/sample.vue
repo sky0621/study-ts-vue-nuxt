@@ -1,13 +1,14 @@
 <template>
-  <Sample :user="{firstName: 'Sato', lastName: 123}" />
+  <Sample :user="user" />
 </template>
 
-<script>
+<script lang="ts">
+  import { Vue, Component } from 'vue-property-decorator'
   import Sample from '~/components/Sample.vue'
+  import User from '~/types/user'
 
-  export default {
-    components: {
-      Sample
-    }
-  }
+  const user: User = {firstName: 'Sato', lastName: 123}
+
+  @Component({ components: { Sample }})
+  export default class SamplePage extends Vue {}
 </script>
