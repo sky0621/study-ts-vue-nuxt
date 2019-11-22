@@ -6,17 +6,21 @@
 </template>
 
 <script lang="ts">
-  import { Vue, Component, Prop, Provide } from 'vue-property-decorator'
-  import User from '~/types/user'
+  import { Vue, Component, Provide } from 'vue-property-decorator'
+
+  interface User {
+    readonly firstName: String
+    readonly lastName: Number
+  }
 
   @Component
   export default class Sample extends Vue {
-    @Prop({ type: Object, required: true }) readonly user!: User
+    @Provide() user: User = { firstName: 'Sato', lastName: 123 }
 
     @Provide() message: String = 'This is a message'
 
     get fullName() {
-      return this.$props.user.firstName + " " + this.$props.user.lastName
+      return this.user.firstName + " " + this.user.lastName
     }
   }
 </script>
