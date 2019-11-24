@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!-- 開発バージョン、便利なコンソールの警告が含まれています -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity .9s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+  </div>
+
+  <div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+  </div>
+
+  <div id="app-7">
+    <ol>
+      <!--
+        各 todo-item の内容を表す todo オブジェクトを与えます。
+        これにより内容は動的に変化します。
+        また後述する "key" を各コンポーネントに提供する必要があります。
+      -->
+      <todo-item
+        v-for="item in groceryList"
+        v-bind:todo="item"
+        v-bind:key="item.id"
+      ></todo-item>
+    </ol>
+  </div>
+
+  <div id="app-8">
+    <input v-model="firstName"> <input v-model="lastName">
+    <br>
+    {{ fullName }}
+  </div>
+
+  <div id="demo">
+    <button v-on:click="show = !show">
+      Toggle
+    </button>
+    <transition name="fade" :duration="{ enter: 6000, leave: 6000 }">
+      <p v-if="show">HELLOOOOO</p>
+    </transition>
+  </div>
+
+  <script>
+    <!-- Vueインスタンス -->
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello, Vue!'
+      }
+    })
+
+    var app5 = new Vue({
+      el: '#app-5',
+      data: {
+        message: 'Hello Vue.js!'
+      },
+      methods: {
+        reverseMessage: function () {
+          this.message = this.message.split('').reverse().join('')
+        }
+      }
+    })
+
+    var app6 = new Vue({
+      el: '#app-6',
+      data: {
+        message: 'Hello Vue!'
+      }
+    })
+
+    Vue.component('todo-item', {
+      // プロパティを受け取る
+      props: ['todo'],
+      template: '<li>{{ todo.text }}</li>'
+    })
+
+    var app7 = new Vue({
+      el: '#app-7',
+      data: {
+        groceryList: [
+          { id: 0, text: 'Vegetables' },
+          { id: 1, text: 'Cheese' },
+          { id: 2, text: 'Whatever else humans are supposed to eat' }
+        ]
+      }
+    })
+
+    var app8 = new Vue({
+      el: '#app-8',
+      data: {
+        firstName: 'Foo',
+        lastName: 'Bar'
+      },
+      computed: {
+        fullName: {
+          // getter
+          get: function () {
+            return this.firstName + " " + this.lastName
+          },
+
+          // setter
+          set: function (newValue) {
+            var names = newValue.split(' ')
+            this.firstName = names[0]
+            this.lastName = names[names.length - 1]
+          }
+        }
+      }
+    })
+
+    var appDemo = new Vue({
+      el: '#demo',
+      data: {
+        show: true
+      }
+    })
+
+  </script>
+</body>
+</html>
